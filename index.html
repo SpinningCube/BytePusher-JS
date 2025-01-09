@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A BytePusher virtual machine implementation written in JavaScript">
+    <title>BytePusher VM</title>
+    <style>
+        body {
+            font-family: 'Open Sans', 'Tahoma', system-ui, sans-serif;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        .control-panel {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+
+        .control-element {
+            margin-top: 0.25em;
+            margin-bottom: 0.25em;
+            min-height: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin: auto; width: 60%; max-width: 384px">
+        <h1>BytePusher VM</h1>
+        <canvas id="bytepusherScreen" style="width: 100%; image-rendering: pixelated;"></canvas>
+        <div class="control-panel">
+            <div class="control-element">
+                FPS: <output id="fpsDisplay"></output>
+            </div>
+            <div class="control-element">
+                Volume: <input type="range" id="volumeControl" min="0" max="1" value="0.5" step="any" style="vertical-align: middle"/>
+            </div>
+            <div class="control-element">
+                Speed: <input type="range" id="speedControl" min="0" max="800" value="100" step="1" style="vertical-align: middle"/>
+                <output id="speedDisplay">100</output>%
+            </div>
+        </div>
+        <div style="margin-top: 1em; margin-bottom: 0.25em;">
+            <b>Select a BytePusher program file:</b>
+        </div>
+        <select id="programSelect">
+            <option value="from-file">Load from local file</option>
+        </select><br>
+        <button id="loadProgram">Load</button>
+        <button id="pauseVM">Pause</button>
+        <input type="file" id="programFileInput" style="display:none">
+        <script src="bytepusher.js"></script>
+        <p>
+            This is a JavaScript implementation of
+            <a href="https://esolangs.org/wiki/BytePusher">BytePusher</a>, a minimalist virtual machine invented by
+            <a href="https://esolangs.org/wiki/User:Javamannen">Javamannen</a>
+            that features a CPU with just one instruction.
+        </p>
+    </div>
+</body>
+</html>
